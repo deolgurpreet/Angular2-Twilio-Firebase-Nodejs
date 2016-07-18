@@ -1,0 +1,41 @@
+<!doctype html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jeg</title>
+  <base href="/">
+
+  <!--Load bootstrap css-->
+  <link href="vendor/bootstrap/dist/css/bootstrap.min.css" type="text/css" rel="stylesheet">
+
+  <!--Load Font Awesome css-->
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  {{#unless environment.production}}
+  <script src="/ember-cli-live-reload.js" type="text/javascript"></script>
+  {{/unless}}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body class="md-col-8" style="height: 100%">
+  <app-root>Loading...</app-root>
+
+
+
+    {{#each scripts.polyfills}}
+    <script src="{{.}}"></script>
+    {{/each}}
+    <script>
+      System.import('system-config.js').then(function () {
+        System.import('main');
+      }).catch(console.error.bind(console));
+    </script>
+
+  <script src="vendor/jquery/dist/jquery.min.js"></script>
+  <script src="vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+
+
+</body>
+</html>

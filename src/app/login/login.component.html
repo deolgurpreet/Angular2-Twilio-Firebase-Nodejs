@@ -1,0 +1,79 @@
+<div class="login-container">
+  <h2 style="margin-bottom: 30px">Log in to access your account</h2>
+
+  <div class="content">
+    <form class="form-horisontal" [formGroup]="myForm">
+
+      <!--email stuff-->
+      <div class="form-group" [class.has-success]="email.valid">
+        <div class="row">
+          <label class="control-label col-sm-2 repairInput" for="password">email:</label>
+          <div class="col-sm-10">
+            <div class="col-sm-11">
+              <input formControlName="email" type="text" class="form-control col-sm-8" id="email" placeholder="example@gmail.com">
+
+              <!--show validation errors for email-->
+              <div *ngIf="email.dirty && !email.valid" class="show-errors">Please enter a valid email adress</div>
+            </div>
+            <div *ngIf="!email.valid && email.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-times-circle-o fa-2x repairInput markAsError" aria-hidden="true"></i>
+            </div>
+            <div *ngIf="email.valid && email.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--password stuff-->
+      <div class="form-group" [class.has-success]="password.valid">
+        <div class="row">
+          <label class="control-label col-sm-2 repairInput" for="password">password:</label>
+          <div class="col-sm-10">
+            <div class="col-sm-11">
+              <input formControlName="password" type="text" class="form-control col-sm-8" id="password">
+
+              <!--show validation errors for password-->
+              <div *ngIf="(password.dirty && password.hasError('isNotNumeric'))" class="show-errors">password must be numeric.</div>
+              <div *ngIf="(password.dirty && password.hasError('minlength'))" class="show-errors">Password too short. Use one between 6 and 15 characters.</div>
+              <div *ngIf="(password.dirty && password.hasError('maxlength'))" class="show-errors">Password too long. Use one between 6 and 15 characters.</div>
+            </div>
+
+            <!--show validation checkbox circle.-->
+            <div *ngIf="!password.valid && password.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-times-circle-o fa-2x repairInput markAsError" aria-hidden="true"></i>
+            </div>
+            <div *ngIf="password.valid && password.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--handle errors to the entire form-->
+      <div class="show-errors">
+        <span>Email or password is incorect. Please Try again!</span>
+      </div>
+
+      <!--submit button-->
+      <div class="form-group">
+        <div style="margin: 20px auto">
+          <button type="submit" class="btn btn-success" [disabled]="!myForm.valid" style="padding: 15px 60px">Log in</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!--other login providers-->
+    <h4>Or use one of the following providers:</h4>
+
+    <div class="auth-providers">
+
+      <a href="#"><i class="fa fa-google-plus-square fa-4x black-onHoverRed" aria-hidden="true"></i>
+      </a>
+      <a href="#"><i class="fa fa-facebook-square fa-4x black-onHoverBlue" aria-hidden="true"></i>
+      </a>
+
+    </div>
+  </div>
+</div>

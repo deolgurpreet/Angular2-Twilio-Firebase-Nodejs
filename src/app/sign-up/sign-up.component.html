@@ -1,0 +1,89 @@
+<div class="login-container">
+  <h2 style="margin-bottom: 30px">Create a new account</h2>
+
+  <div class="content">
+    <form class="form-horisontal">
+
+      <!--email stuff-->
+      <div class="form-group" [class.has-success]="email.valid">
+        <div class="row">
+          <label class="control-label col-sm-2 repairInput" for="password">email:</label>
+          <div class="col-sm-10">
+            <div class="col-sm-11">
+              <input type="text" formControlName="email" class="form-control col-sm-8" id="email" placeholder="example@gmail.com">
+
+              <!--show validation errors for email-->
+              <div *ngIf="email.dirty && !email.valid" class="show-errors">Please enter a valid email adress</div>
+              <div *ngIf="email.dirty && email.hasError('emailAlreadyTaken')" class="show-errors">This email has already be taken. Please provide another one.</div>
+            </div>
+            <div *ngIf="!email.valid && email.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-times-circle-o fa-2x repairInput markAsError" aria-hidden="true"></i>
+            </div>
+            <div *ngIf="email.valid && email.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--password stuff-->
+      <div class="form-group" [class.has-success]="password.valid">
+        <div class="row">
+          <label class="control-label col-sm-2 repairInput" for="password">password:</label>
+          <div class="col-sm-10">
+            <div class="col-sm-11">
+              <input type="password" class="form-control col-sm-8" id="password" placeholder="enter your password">
+
+              <!--show validation errors for password-->
+              <div *ngIf="(password.dirty && password.hasError('isNotNumeric'))" class="show-errors">password must be numeric.</div>
+              <div *ngIf="(password.dirty && password.hasError('minlength'))" class="show-errors">Password too short. Use one between 6 and 15 characters.</div>
+              <div *ngIf="(password.dirty && password.hasError('maxlength'))" class="show-errors">Password too long. Use one between 6 and 15 characters.</div>
+            </div>
+
+            <!--show validation checkbox circle.-->
+            <div *ngIf="!password.valid && password.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-times-circle-o fa-2x repairInput markAsError" aria-hidden="true"></i>
+            </div>
+            <div *ngIf="password.valid && password.dirty" class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--confirm password stuff-->
+      <div class="form-group" [class.has-success]="confirm_password.valid">
+        <div class="row">
+          <label class="control-label col-sm-2 repairInput" for="confirm_password">confirm password:</label>
+          <div class="col-sm-10">
+            <div class="col-sm-11">
+              <input type="password" class="form-control col-sm-8" id="confirm_password" placeholder="confirm your password">
+            </div>
+            <div class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--handle errors-->
+      <div class="show-errors error">
+        <span>This email has already been taken! or Password is too week!
+Choose a password between 8 and 12 charachers</span>
+      </div>
+
+      <!--submit button-->
+      <div class="form-group">
+        <div style="margin: 20px auto">
+          <button type="submit" class="btn btn-success" style="padding: 15px 60px">Sign Up</button>
+        </div>
+      </div>
+
+    </form>
+
+    <!--Forgot password stuff-->
+    <div>
+      <a class="forgot-password" href="/my-account">Can't remember my password </a>
+    </div>
+  </div>
+</div>

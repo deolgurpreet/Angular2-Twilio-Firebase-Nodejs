@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="navbar">
+    <p class="nav-welcome">welcome <span class="username">AIon</span> !!</p>
+    <a href="#" class="nav-right">Log out</a>
+  </div>
+
+  <div class="info">
+    <p>Send SMS messages to anyone on the globe free of charge!</p>
+    <p>You can send the same message to multiple people at the same time if you want.</p>
+  </div>
+</div>
+
+<section class="send-container container">
+  <form class="form-horizontal">
+    <div class="marginOf10">
+      <!--your number-->
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-sm-3 repairInput" for="your_number">your number:</label>
+          <div class="col-sm-4">
+            <div class="col-sm-7">
+              <input type="text" class="form-control col-sm-8" id="your_number" placeholder="with prefix: +400751525542">
+            </div>
+            <div class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!--SMS destination number-->
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-sm-3 repairInput" for="rec_number">recipment(s) number:</label>
+          <div class="col-sm-8">
+            <div class="col-sm-7">
+              <input type="text" class="form-control col-sm-8" id="rec_number" placeholder="separate with camma like so: 400751525572,400752525542, etc">
+              <span class="help-block show-errors">Some errors here</span>
+            </div>
+            <div class="col-md-1 visible-md visible-lg">
+              <i class="fa fa-check-circle-o fa-2x repairInput markAsGoodToGo" aria-hidden="true"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!--The Message-->
+      <div class="form-group">
+        <div class="row">
+          <label class="control-label col-sm-3 repairInput" for="message">SMS message:</label>
+          <div class="col-sm-8">
+            <div class="col-sm-12">
+              <textarea name="" id="message" class="form-control maxWidth" style="resize: vertical" rows="6"></textarea>
+              <!--<span class="help-block show-errors">Some errors here</span>-->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!--Send Message button-->
+      <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-8">
+          <div class="col-sm-12">
+            <div class="col-sm-8">
+              <a href="#" class="btn btn-brown push-right">Send SMS</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+</section>
